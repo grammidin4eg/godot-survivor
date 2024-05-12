@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bo5rada7dj8g7"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_7op32"]
+[ext_resource type="Texture2D" uid="uid://bf28ujoj8tear" path="res://images/tank/track1.png" id="1_fqwq2"]
+[ext_resource type="Texture2D" uid="uid://88i058vi1y04" path="res://images/tank/b2.png" id="2_sn6bl"]
+[ext_resource type="Texture2D" uid="uid://u0xyn205ng32" path="res://images/tank/b1.png" id="3_1iqk1"]
+[ext_resource type="Texture2D" uid="uid://sfekksswxqan" path="res://images/tank/gun1.png" id="4_gtm2m"]
+[ext_resource type="Texture2D" uid="uid://bnpm5aqg232k4" path="res://images/tank/connector.png" id="5_uiel3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgxjd"]
+size = Vector2(107, 110)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_7op32")
+
+[node name="Track1" type="Sprite2D" parent="."]
+position = Vector2(-30, 4)
+texture = ExtResource("1_fqwq2")
+
+[node name="Track2" type="Sprite2D" parent="."]
+position = Vector2(31, 4)
+texture = ExtResource("1_fqwq2")
+
+[node name="B2" type="Sprite2D" parent="."]
+texture = ExtResource("2_sn6bl")
+
+[node name="top" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="B1" type="Sprite2D" parent="top"]
+texture = ExtResource("3_1iqk1")
+
+[node name="Gun1" type="Sprite2D" parent="top"]
+position = Vector2(-1, -86)
+texture = ExtResource("4_gtm2m")
+
+[node name="Connector" type="Sprite2D" parent="top"]
+position = Vector2(0, -42)
+texture = ExtResource("5_uiel3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_jgxjd")
