@@ -29,6 +29,6 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		stopAnimation()
 	
-	%top.look_at(get_global_mouse_position())
-	%top.rotate(90)
+	var pre = %top.global_position -get_global_mouse_position()
+	%top.rotation = pre.angle() + 1.5 * PI
 	move_and_slide()
