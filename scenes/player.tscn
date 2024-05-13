@@ -38,6 +38,7 @@ animations = [{
 size = Vector2(107, 110)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 4
 script = ExtResource("1_7op32")
 
 [node name="Track1" type="AnimatedSprite2D" parent="."]
@@ -68,6 +69,10 @@ texture = ExtResource("4_gtm2m")
 [node name="Connector" type="Sprite2D" parent="top"]
 position = Vector2(0, -42)
 texture = ExtResource("5_uiel3")
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="top"]
+unique_name_in_owner = true
+position = Vector2(0, -120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 2)
