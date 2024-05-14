@@ -44,6 +44,6 @@ func _physics_process(delta):
 		var bullet = BULLET.instantiate()
 		bullet.global_position = %top/BulletSpawnPoint.global_position
 		bullet.global_rotation = %top.global_rotation
-		bullet.add_constant_force(get_global_mouse_position() - bullet.global_position)
+		#bullet.add_constant_force(get_global_mouse_position() - bullet.global_position)
 		get_parent().add_child(bullet)
 

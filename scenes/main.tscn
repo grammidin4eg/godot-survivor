@@ -11,7 +11,7 @@ size = Vector2(1219, 710)
 script = ExtResource("1_wh3by")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
+layer = -2
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 texture_repeat = 2
