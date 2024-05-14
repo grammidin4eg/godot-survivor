@@ -23,25 +23,22 @@ func _physics_process(delta):
 		velocity = Vector2.RIGHT * direction_horizontal * SPEED
 		rotation_degrees = 90 if direction_horizontal > 0 else -90
 		runAnimation()
-		angle_fix = 1 if direction_horizontal > 0 else 2
 	elif direction_vertical != 0:
 		velocity = Vector2.DOWN * direction_vertical * SPEED
 		rotation_degrees = 180 if direction_vertical > 0 else 0
 		runAnimation()
-		angle_fix = 1.5 if direction_vertical < 0 else 2.5
 	else:
 		velocity = Vector2.ZERO
 		stopAnimation()
 	
-	var pre = %top.global_position - get_global_mouse_position()
-	%top.rotation = pre.angle() + angle_fix * PI
+	%top.look_at(get_global_mouse_position())
+	%top.rotate(PI / 2)
 	move_and_slide()
 	
 	if Input.is_action_pressed("fire"):
 		var bullet = BULLET.instantiate()
 		bullet.global_position = %top/BulletSpawnPoint.global_position
-		#bullet.rotation = pre.angle() * PI * 1.5
-		bullet.look_at(get_global_mouse_position())
+		bullet.global_rotation = %top.global_rotation
 		bullet.add_constant_force(get_global_mouse_position() - bullet.global_position)
 		get_parent().add_child(bullet)
 
