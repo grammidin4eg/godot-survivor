@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://b52k3u1ka3rvg"]
+[gd_scene load_steps=30 format=3 uid="uid://b52k3u1ka3rvg"]
 
 [ext_resource type="Texture2D" uid="uid://gmtj5vmdjlxe" path="res://images/flipbook.png" id="1_utpx7"]
 [ext_resource type="Script" path="res://scenes/boom.gd" id="2_3x50j"]
+[ext_resource type="AudioStream" uid="uid://ccemtpvvxlsgp" path="res://snd/mixkit-system-break-2942.wav" id="3_d70ge"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uej5n"]
 atlas = ExtResource("1_utpx7")
@@ -189,5 +190,9 @@ animations = [{
 [node name="Boom" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_347va")
 script = ExtResource("2_3x50j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_d70ge")
+autoplay = true
 
 [connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

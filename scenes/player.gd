@@ -46,4 +46,5 @@ func _physics_process(delta):
 		bullet.global_rotation = %top.global_rotation
 		#bullet.add_constant_force(get_global_mouse_position() - bullet.global_position)
 		get_parent().add_child(bullet)
+		$ShootSnd.play()
 

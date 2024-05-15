@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bo5rada7dj8g7"]
+[gd_scene load_steps=12 format=3 uid="uid://bo5rada7dj8g7"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_7op32"]
 [ext_resource type="Texture2D" uid="uid://bf28ujoj8tear" path="res://images/tank/track1.png" id="1_fqwq2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://mh8wsnm5bt8w" path="res://images/tank/track2.png" id="3_5vwq3"]
 [ext_resource type="Texture2D" uid="uid://sfekksswxqan" path="res://images/tank/gun1.png" id="4_gtm2m"]
 [ext_resource type="Texture2D" uid="uid://bnpm5aqg232k4" path="res://images/tank/connector.png" id="5_uiel3"]
+[ext_resource type="AudioStream" uid="uid://bikoip6rg8pyr" path="res://snd/mixkit-short-explosion-1694.wav" id="8_bls0n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cdal6"]
 atlas = ExtResource("1_fqwq2")
@@ -77,3 +78,6 @@ position = Vector2(0, -120)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_jgxjd")
+
+[node name="ShootSnd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_bls0n")
