@@ -35,4 +35,10 @@ position = Vector2(558, 341)
 [node name="Aim" parent="." instance=ExtResource("4_yrpee")]
 position = Vector2(959, 189)
 
+[node name="Aim2" parent="." instance=ExtResource("4_yrpee")]
+position = Vector2(106, 536)
+
+[node name="Aim3" parent="." instance=ExtResource("4_yrpee")]
+position = Vector2(138, 145)
+
 [connection signal="body_exited" from="CanvasLayer/Screen" to="." method="_on_screen_body_exited"]

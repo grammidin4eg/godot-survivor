@@ -1,12 +1,11 @@
 extends Area2D
 
-var is_active: bool
-
-func _ready():
-	is_active = true
+const BOOM = preload("res://scenes/boom.tscn")
 
 func _on_bullet_entered(bullet):
-	if is_active:
-		is_active = false
-		$Box.play("boom")
-		bullet.queue_free()
+	bullet.queue_free()
+	var boom =BOOM.instantiate()
+	boom.global_position = global_position
+	get_parent().add_child(boom)
+	boom.play('default')
+	queue_free()
