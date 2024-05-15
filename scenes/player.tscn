@@ -36,9 +36,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgxjd"]
-size = Vector2(107, 110)
+size = Vector2(111, 110)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 4
 script = ExtResource("1_7op32")
 
@@ -75,8 +75,8 @@ texture = ExtResource("5_uiel3")
 unique_name_in_owner = true
 position = Vector2(0, -120)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
+position = Vector2(-1.5, 2)
 shape = SubResource("RectangleShape2D_jgxjd")
 
 [node name="ShootSnd" type="AudioStreamPlayer2D" parent="."]
