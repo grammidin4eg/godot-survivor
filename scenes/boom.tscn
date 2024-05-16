@@ -188,6 +188,7 @@ animations = [{
 }]
 
 [node name="Boom" type="AnimatedSprite2D"]
+position = Vector2(1, -48)
 sprite_frames = SubResource("SpriteFrames_347va")
 script = ExtResource("2_3x50j")
 

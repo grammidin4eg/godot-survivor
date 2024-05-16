@@ -1,12 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfcleunp4rirw"]
+[gd_scene load_steps=8 format=3 uid="uid://bfcleunp4rirw"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_wh3by"]
 [ext_resource type="Texture2D" uid="uid://bhb24cqvj5a2h" path="res://images/background.png" id="1_yj3f5"]
 [ext_resource type="PackedScene" uid="uid://bo5rada7dj8g7" path="res://scenes/player.tscn" id="2_wrkle"]
 [ext_resource type="PackedScene" uid="uid://brp2xmis8vb8w" path="res://scenes/aim.tscn" id="4_yrpee"]
+[ext_resource type="Script" path="res://scenes/spawn_timer.gd" id="5_aq8kt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayq0t"]
-size = Vector2(1219, 710)
+size = Vector2(1581, 1025)
+
+[sub_resource type="Curve2D" id="Curve2D_owrj4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -81, -65, 0, 0, 0, 0, 1233, -65, 0, 0, 0, 0, 1230, 717, 0, 0, 0, 0, -75, 736, 0, 0, 0, 0, -83, -62)
+}
+point_count = 5
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_wh3by")
@@ -26,7 +33,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Screen"]
-position = Vector2(577.5, 323)
+position = Vector2(580.5, 316.5)
 shape = SubResource("RectangleShape2D_ayq0t")
 
 [node name="Player" parent="." instance=ExtResource("2_wrkle")]
@@ -43,4 +50,18 @@ position = Vector2(106, 536)
 [node name="Aim3" parent="." instance=ExtResource("4_yrpee")]
 position = Vector2(138, 145)
 
+[node name="SpawnPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_owrj4")
+
+[node name="SpawnPathFollow" type="PathFollow2D" parent="SpawnPath"]
+unique_name_in_owner = true
+position = Vector2(-81, -65)
+
+[node name="SpawnMarker" type="Marker2D" parent="SpawnPath/SpawnPathFollow"]
+
+[node name="Timer" type="Timer" parent="SpawnPath"]
+autostart = true
+script = ExtResource("5_aq8kt")
+
 [connection signal="body_exited" from="CanvasLayer/Screen" to="." method="_on_screen_body_exited"]
+[connection signal="timeout" from="SpawnPath/Timer" to="SpawnPath/Timer" method="_on_timeout"]

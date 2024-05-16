@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 const BOOM = preload("res://scenes/boom.tscn")
-const SPEED = 30
+const SPEED = 100
 
 func _ready():
 	$Sprite.play("default")
 	
 func _physics_process(delta):
-	if %Player:
-		var direction = global_position.direction_to(%Player.global_position)
+	if get_node('/root/main/Player'):
+		var direction = global_position.direction_to(get_node('/root/main/Player').global_position)
 		velocity = direction * SPEED
 		move_and_slide()
 	

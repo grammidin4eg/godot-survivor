@@ -156,7 +156,7 @@ animations = [{
 
 [node name="Aim" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_53k5q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
