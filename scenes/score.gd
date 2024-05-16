@@ -7,7 +7,6 @@ func set_score(new_score: int):
 	$CanvasLayer/Label.text = str(score)
 
 func add_score():
-	print('add_score ', score)
 	set_score(score + 1)
 
 func _ready():
