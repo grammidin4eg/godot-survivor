@@ -8,7 +8,7 @@ const BULLET_LIST = [
 	preload("res://scenes/big_bullet.tscn"),
 	]
 var cur_bullet: int = 0
-
+@onready var bulletUi: Sprite2D = get_node("/root/main/CanvasLayer/BulletUI")
 var bullet_timer : Timer = Timer.new()
 
 func runAnimation():
@@ -54,6 +54,8 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("next_bullet") and cur_bullet < (BULLET_LIST.size() - 1):
 		cur_bullet += 1
+		bulletUi.frame = cur_bullet
 	if Input.is_action_just_pressed("prev_bullet") and cur_bullet > 0:
 		cur_bullet -= 1
+		bulletUi.frame = cur_bullet
 
