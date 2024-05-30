@@ -2,7 +2,12 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const BULLET = preload("res://scenes/bullet.tscn")
+const BULLET_LIST = [
+	preload("res://scenes/bullet.tscn"), 
+	preload("res://scenes/laser_bullet.tscn"),
+	preload("res://scenes/big_bullet.tscn"),
+	]
+var cur_bullet: int = 0
 
 var bullet_timer : Timer = Timer.new()
 
@@ -41,10 +46,14 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("fire") and bullet_timer.is_stopped():
 		bullet_timer.start()
-		var bullet = BULLET.instantiate()
+		var bullet: Bullet = BULLET_LIST[cur_bullet].instantiate()
 		bullet.global_position = %top/BulletSpawnPoint.global_position
 		bullet.global_rotation = %top.global_rotation
-		#bullet.add_constant_force(get_global_mouse_position() - bullet.global_position)
 		get_parent().add_child(bullet)
-		$ShootSnd.play()
+		bullet.playShootSnd()
+	
+	if Input.is_action_just_pressed("next_bullet") and cur_bullet < (BULLET_LIST.size() - 1):
+		cur_bullet += 1
+	if Input.is_action_just_pressed("prev_bullet") and cur_bullet > 0:
+		cur_bullet -= 1
 

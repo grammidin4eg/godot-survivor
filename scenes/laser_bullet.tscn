@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3vt1o2ea6ygu"]
+
+[ext_resource type="PackedScene" uid="uid://bup3hqlo5g7vy" path="res://scenes/bullet.tscn" id="1_jje0e"]
+[ext_resource type="Texture2D" uid="uid://c5asfdey01kao" path="res://images/tank/laser.png" id="2_mx0qw"]
+[ext_resource type="AudioStream" uid="uid://d0bcn6ykvmq5n" path="res://snd/laser.mp3" id="3_oveng"]
+
+[node name="LaserBullet" instance=ExtResource("1_jje0e")]
+SPEED = 1300
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_mx0qw")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -1)
+
+[node name="ShootSnd" parent="." index="2"]
+stream = ExtResource("3_oveng")
