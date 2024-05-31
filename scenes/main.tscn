@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfcleunp4rirw"]
+[gd_scene load_steps=12 format=3 uid="uid://bfcleunp4rirw"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_wh3by"]
 [ext_resource type="Texture2D" uid="uid://bhb24cqvj5a2h" path="res://images/background.png" id="1_yj3f5"]
 [ext_resource type="PackedScene" uid="uid://bo5rada7dj8g7" path="res://scenes/player.tscn" id="2_wrkle"]
 [ext_resource type="Texture2D" uid="uid://ggb0dabyhhax" path="res://images/bullets_ui.jpg" id="3_iytvl"]
+[ext_resource type="FontFile" uid="uid://bfhavxvmpbiaa" path="res://font/Minecraft Seven_2.ttf" id="4_sih2f"]
 [ext_resource type="PackedScene" uid="uid://brp2xmis8vb8w" path="res://scenes/aim.tscn" id="4_yrpee"]
 [ext_resource type="Script" path="res://scenes/spawn_timer.gd" id="5_aq8kt"]
 [ext_resource type="PackedScene" uid="uid://r1cvsurm601w" path="res://scenes/score.tscn" id="6_57phn"]
@@ -46,6 +47,26 @@ position = Vector2(11, 555)
 texture = ExtResource("3_iytvl")
 centered = false
 hframes = 3
+
+[node name="QLabel" type="Label" parent="CanvasLayer/BulletUI"]
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 27.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.654902, 0, 0.654902, 1)
+theme_override_fonts/font = ExtResource("4_sih2f")
+text = "Q"
+
+[node name="ELabel2" type="Label" parent="CanvasLayer/BulletUI"]
+offset_left = 79.0
+offset_top = 3.0
+offset_right = 98.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.654902, 0, 0.654902, 1)
+theme_override_fonts/font = ExtResource("4_sih2f")
+text = "E"
 
 [node name="Player" parent="." instance=ExtResource("2_wrkle")]
 unique_name_in_owner = true
